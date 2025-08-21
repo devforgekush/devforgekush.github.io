@@ -13,6 +13,7 @@
       color: #e5e5e5;
       line-height: 1.6;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
     h1, h2, h3 {
       font-weight: 600;
@@ -30,6 +31,53 @@
       max-width: 1100px;
       margin: auto;
       padding: 70px 20px;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(20,20,20,0.85);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 40px;
+      z-index: 1000;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.6);
+    }
+    nav .logo {
+      font-size: 1.5em;
+      font-weight: 600;
+      white-space: nowrap; /* ✅ prevents name cutoff */
+      background: linear-gradient(90deg,#00c2ff,#00ffae);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      font-weight: 500;
+      font-size: 1em;
+      padding: 6px 12px;
+      border-radius: 8px;
+    }
+    nav ul li a.active {
+      background: #00c2ff;
+      color: #000;
+    }
+    nav ul li a:hover {
+      background: #00ffae;
+      color: #000;
+    }
+    body {
+      padding-top: 70px; /* offset for navbar */
     }
 
     /* HERO */
@@ -109,6 +157,19 @@
   </style>
 </head>
 <body>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">DevForgeKush</div>
+    <ul>
+      <li><a href="#about" class="active">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#github">GitHub</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
   <!-- HERO -->
   <header class="reveal">
     <h1>DevForgeKush</h1>
@@ -116,7 +177,7 @@
   </header>
 
   <!-- ABOUT -->
-  <section class="reveal">
+  <section id="about" class="reveal">
     <h2>👨‍💻 About Me</h2>
     <div class="card">
       <p>I’m a passionate developer who builds tools, experiments with tech, and creates innovative solutions. 
@@ -125,7 +186,7 @@
   </section>
 
   <!-- SKILLS -->
-  <section class="reveal">
+  <section id="skills" class="reveal">
     <h2>⚡ Skills</h2>
     <div class="skills">
       <div class="skill">HTML</div>
@@ -140,16 +201,11 @@
   </section>
 
   <!-- PROJECTS -->
-  <section class="reveal">
+  <section id="projects" class="reveal">
     <h2>🚀 Projects</h2>
     <div class="card">
       <h3>ATS Resume Builder</h3>
       <p>A tool that generates ATS-friendly resumes with modern templates. 
-      <a href="#">🔗 View Project</a></p>
-    </div>
-    <div class="card">
-      <h3>Purple Tool</h3>
-      <p>An automation tool designed to handle 30+ background apps seamlessly. 
       <a href="#">🔗 View Project</a></p>
     </div>
     <div class="card">
@@ -160,7 +216,7 @@
   </section>
 
   <!-- RESUME -->
-  <section class="reveal">
+  <section id="resume" class="reveal">
     <h2>📄 Resume</h2>
     <div class="card">
       <p>Download my CV → <a href="resume.pdf" target="_blank">Resume PDF</a></p>
@@ -168,7 +224,7 @@
   </section>
 
   <!-- GITHUB -->
-  <section class="reveal">
+  <section id="github" class="reveal">
     <h2>🐙 GitHub</h2>
     <div class="card">
       <p>Explore my repositories → 
@@ -177,10 +233,10 @@
   </section>
 
   <!-- CONTACT -->
-  <section class="reveal">
+  <section id="contact" class="reveal">
     <h2>📬 Contact</h2>
     <div class="card">
-      <p>Email: <a href="mailto:yourmail@email.com">yourmail@email.com</a></p>
+      <p>Email: <a href="mailto:jain.toni.ravi@gmail.com">jain.toni.ravi@gmail.com</a></p>
       <p>LinkedIn: <a href="#">linkedin.com/in/devforgekush</a></p>
       <p>GitHub: <a href="https://github.com/devforgekush" target="_blank">github.com/devforgekush</a></p>
     </div>
@@ -191,8 +247,9 @@
     © 2025 DevForgeKush | Crafted with ❤️ and Code
   </footer>
 
-  <!-- SCROLL REVEAL SCRIPT -->
+  <!-- SCROLL REVEAL + NAV ACTIVE SCRIPT -->
   <script>
+    // Reveal animation
     function revealOnScroll() {
       let reveals = document.querySelectorAll(".reveal");
       for (let i = 0; i < reveals.length; i++) {
@@ -205,7 +262,27 @@
       }
     }
     window.addEventListener("scroll", revealOnScroll);
-    revealOnScroll(); // trigger on load
+    revealOnScroll();
+
+    // Navbar active section
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav ul li a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (scrollY >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href").includes(current)) {
+          link.classList.add("active");
+        }
+      });
+    });
   </script>
 </body>
 </html>
