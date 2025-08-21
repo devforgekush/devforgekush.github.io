@@ -2,55 +2,210 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Atsly – Smart ATS-Friendly CVs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DevForgeKush | Portfolio</title>
   <style>
+    /* GLOBAL */
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: white;
-      text-align: center;
+      font-family: "Poppins", sans-serif;
+      background: #0a0a0a;
+      color: #e5e5e5;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
+    h1, h2, h3 {
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    a {
+      color: #00c2ff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    a:hover {
+      color: #00ffae;
+    }
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 70px 20px;
+    }
+
+    /* HERO */
     header {
-      padding: 50px 20px;
+      text-align: center;
+      padding: 120px 20px;
+      background: radial-gradient(circle at top, #141414, #000);
     }
-    h1 {
-      font-size: 2.5em;
+    header h1 {
+      font-size: 3.5em;
+      background: linear-gradient(90deg, #00c2ff, #00ffae);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       margin-bottom: 10px;
     }
-    p {
-      font-size: 1.2em;
-      margin-bottom: 20px;
+    header p {
+      font-size: 1.3em;
+      color: #aaa;
     }
-    .btn {
-      display: inline-block;
-      background: white;
-      color: #764ba2;
-      padding: 12px 25px;
-      border-radius: 25px;
-      font-weight: bold;
-      text-decoration: none;
+
+    /* CARD */
+    .card {
+      background: #161616;
+      padding: 25px;
+      border-radius: 14px;
+      margin-bottom: 25px;
+      box-shadow: 0 0 20px rgba(0, 255, 170, 0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-    .btn:hover {
-      background: #f2f2f2;
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(0, 194, 255, 0.25);
     }
+
+    /* SKILLS */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .skill {
+      background: #1f1f1f;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 500;
+      color: #00c2ff;
+      border: 1px solid #2c2c2c;
+      transition: 0.3s;
+    }
+    .skill:hover {
+      background: #00c2ff;
+      color: #000;
+    }
+
+    /* ANIMATIONS */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+
+    /* FOOTER */
     footer {
-      margin-top: 50px;
-      padding: 20px;
+      text-align: center;
+      padding: 25px;
+      background: #111;
+      color: #666;
       font-size: 0.9em;
-      background: rgba(255,255,255,0.1);
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>🚀 Atsly</h1>
-    <p>Build high-quality, ATS-optimized CVs in minutes.</p>
-    <a href="#get-started" class="btn">Get Started</a>
+  <!-- HERO -->
+  <header class="reveal">
+    <h1>DevForgeKush</h1>
+    <p>Full-Stack Developer • Builder • Innovator</p>
   </header>
+
+  <!-- ABOUT -->
+  <section class="reveal">
+    <h2>👨‍💻 About Me</h2>
+    <div class="card">
+      <p>I’m a passionate developer who builds tools, experiments with tech, and creates innovative solutions. 
+      Currently focused on full-stack development, automation, and scaling projects.</p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="reveal">
+    <h2>⚡ Skills</h2>
+    <div class="skills">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">React</div>
+      <div class="skill">Node.js</div>
+      <div class="skill">Python</div>
+      <div class="skill">GitHub</div>
+      <div class="skill">Docker</div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="reveal">
+    <h2>🚀 Projects</h2>
+    <div class="card">
+      <h3>ATS Resume Builder</h3>
+      <p>A tool that generates ATS-friendly resumes with modern templates. 
+      <a href="#">🔗 View Project</a></p>
+    </div>
+    <div class="card">
+      <h3>Purple Tool</h3>
+      <p>An automation tool designed to handle 30+ background apps seamlessly. 
+      <a href="#">🔗 View Project</a></p>
+    </div>
+    <div class="card">
+      <h3>Portfolio Website</h3>
+      <p>This polished developer portfolio hosted on GitHub Pages. 
+      <a href="https://devforgekush.github.io">🔗 Live Demo</a></p>
+    </div>
+  </section>
+
+  <!-- RESUME -->
+  <section class="reveal">
+    <h2>📄 Resume</h2>
+    <div class="card">
+      <p>Download my CV → <a href="resume.pdf" target="_blank">Resume PDF</a></p>
+    </div>
+  </section>
+
+  <!-- GITHUB -->
+  <section class="reveal">
+    <h2>🐙 GitHub</h2>
+    <div class="card">
+      <p>Explore my repositories → 
+      <a href="https://github.com/devforgekush" target="_blank">github.com/devforgekush</a></p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="reveal">
+    <h2>📬 Contact</h2>
+    <div class="card">
+      <p>Email: <a href="mailto:yourmail@email.com">yourmail@email.com</a></p>
+      <p>LinkedIn: <a href="#">linkedin.com/in/devforgekush</a></p>
+      <p>GitHub: <a href="https://github.com/devforgekush" target="_blank">github.com/devforgekush</a></p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    © 2025 Atsly by DevForgeKush
+    © 2025 DevForgeKush | Crafted with ❤️ and Code
   </footer>
+
+  <!-- SCROLL REVEAL SCRIPT -->
+  <script>
+    function revealOnScroll() {
+      let reveals = document.querySelectorAll(".reveal");
+      for (let i = 0; i < reveals.length; i++) {
+        let windowHeight = window.innerHeight;
+        let elementTop = reveals[i].getBoundingClientRect().top;
+        let elementVisible = 100;
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        }
+      }
+    }
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll(); // trigger on load
+  </script>
 </body>
 </html>
